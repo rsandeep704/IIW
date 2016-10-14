@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from mobilewiz.views import Home
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url('^$', Home.as_view())
 ]
