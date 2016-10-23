@@ -17,9 +17,8 @@ class Search(View):
         sqs = SearchQuerySet().filter(content_auto=request.GET.get('q', ''))
         suggestions = [result.title for result in sqs]
 
-        # Make sure you return a JSON object, not a bare list.
-        # Otherwise, you could be vulnerable to an XSS attack.
-        the_data = json.dumps({
+        
+        data = json.dumps({
             'results': suggestions
         })
-        return HttpResponse(the_data, content_type='application/json')
+        return HttpResponse(data, content_type='application/json')
