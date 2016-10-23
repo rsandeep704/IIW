@@ -3,7 +3,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from haystack.query import SearchQuerySet
 from django.http import HttpResponse
-import json
+import json, urllib
 
 
 class Home(View):
@@ -15,10 +15,22 @@ class Home(View):
 class Search(View):
     def get(self, request):
         sqs = SearchQuerySet().filter(content_auto=request.GET.get('q', ''))
-        suggestions = [result.title for result in sqs]
+        print(sqs)
+        # suggestions = [result.title for result in sqs]
 
-        
-        data = json.dumps({
-            'results': suggestions
-        })
+        baseURLForItem = "/item/"
+
+        suggestions = []
+
+        for result in sqs:
+            suggestion = {}
+            suggestion['title'] = result.title
+            suggestion['url'] = baseURLForItem + urllib.parse.quote(result.title)
+            suggestions.append(suggestion)
+
+        data = json.dumps(suggestions)
+
+        # data = json.dumps({
+        #     'results': suggestions
+        # })
         return HttpResponse(data, content_type='application/json')

@@ -4,41 +4,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript" src=" {% static "/js/typeahead.bundle.js" %}"></script>
     <script type="text/javascript">
-        var substringMatcher = function (strs) {
-            return function findMatches(q, cb) {
-                var matches, substringRegex;
-
-                // an array that will be populated with substring matches
-                matches = [];
-
-                // regex used to determine if a string contains the substring `q`
-                substrRegex = new RegExp(q, 'i');
-
-                // iterate through the pool of strings and for any string that
-                // contains the substring `q`, add it to the `matches` array
-                $.each(strs, function (i, str) {
-                    if (substrRegex.test(str)) {
-                        matches.push(str);
-                    }
-                });
-
-                cb(matches);
-            };
-        };
 
         var searchResults = new Bloodhound({
             datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
             queryTokenizer: Bloodhound.tokenizers.whitespace,
-            prefetch: '/search/',
+            prefetch: '/search/?q=note',
             remote: {
-                url: '/search/?q=note',
+                url: '/search/?q=%QUERY',
                 wildcard: '%QUERY'
             }
         });
         $(document).ready(function () {
             $('#remote .typeahead').typeahead(null, {
-                name: 'best-pictures',
-                display: 'value',
+                display: 'title',
                 source: searchResults
             });
         });
@@ -46,8 +24,8 @@
     </script>
 </head>
 <body>
-<div id="the-basics">
-    <input class="typeahead" type="text" placeholder="States of USA">
+<div id="remote">
+    <input class="typeahead" type="text" placeholder="Which phone do you want to search today?">
 </div>
 </body>
 </html>
