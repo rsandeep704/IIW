@@ -1,62 +1,53 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
+{% load staticfiles %}
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Welcome to Mobile Wizard</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
-    <link rel="stylesheet" href="{% static "css/dep2.css" %}">
-    <link rel="stylesheet" href="{% static "css/dep1.css" %}">
-    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src=" {% static "/js/typeahead.bundle.js" %}"></script>
+    <script type="text/javascript">
+        var substringMatcher = function (strs) {
+            return function findMatches(q, cb) {
+                var matches, substringRegex;
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="{% static "css/bootstrap-theme.min.css" %}">
+                // an array that will be populated with substring matches
+                matches = [];
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="{% static  "bootstrap.min.js" %} "></script>
+                // regex used to determine if a string contains the substring `q`
+                substrRegex = new RegExp(q, 'i');
+
+                // iterate through the pool of strings and for any string that
+                // contains the substring `q`, add it to the `matches` array
+                $.each(strs, function (i, str) {
+                    if (substrRegex.test(str)) {
+                        matches.push(str);
+                    }
+                });
+
+                cb(matches);
+            };
+        };
+
+        var searchResults = new Bloodhound({
+            datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+            prefetch: '/search/',
+            remote: {
+                url: '/search/?q=note',
+                wildcard: '%QUERY'
+            }
+        });
+        $(document).ready(function () {
+            $('#remote .typeahead').typeahead(null, {
+                name: 'best-pictures',
+                display: 'value',
+                source: searchResults
+            });
+        });
+
+    </script>
 </head>
 <body>
-<div id="search-box-button">
-
-    <div class="df_dealform_row df_row--input">
-        <div class="df_component df_query">
-            <div id="js-dealform-queryinput" class="df_wrap df_wrap--input">
-                <input type="text"
-                       id="js_querystring_shadow"
-                       class="df_query_shadowtext   "
-                       autocorrect="off" autocomplete="off"
-                       spellcheck="false"
-                       aria-labelledby="js_go" readonly=""
-                ><input
-                    type="text" id="js_querystring" class="df_query_input " tabindex="1" autocomplete="off"
-                    autocorrect="off" spellcheck="false" aria-labelledby="js_go"></div>
-            <div class="js-dealform-foldouts df-foldouts">
-                <div class="df-foldouts__foldout">
-                    <div id="js-dealform-suggest" class="df-dealform-suggest ssg-suggest"><span
-                            class="df_overlay_arrow"></span>
-                        <div class="js-ssg-feedback ssg-feedback ssg-feedback-no-results">No results for ""</div>
-                        <ul class="js-ssg-suggestions ssg-suggestions" style="max-height: 718px;"></ul>
-                        <div class="ssg-footer js-suggestion-close">
-                            <div class="ssg-title">Close</div>
-                            <span class="icon-ic icon-icn__ip-close_s ssg-close icon-center"><svg baseProfile="tiny"
-                                                                                                  xmlns="http://www.w3.org/2000/svg"
-                                                                                                  width="9" height="9"
-                                                                                                  viewBox="0 0 9 9"><path
-                                    class="svg-color--primary" fill="#697379"
-                                    d="M5.6 4.512l3.2-3.19c.1-.2.2-.4.2-.5S8.9.425 8.8.225c-.3-.3-.8-.3-1.1 0l-3.2 3.19L1.3.226c-.3-.3-.8-.3-1.1 0-.1.2-.2.4-.2.6s.1.397.2.497l3.2 3.19L.2 7.705c-.1.2-.2.398-.2.598s.1.4.2.5C.3 8.9.6 9 .8 9s.4-.1.5-.2l3.2-3.19L7.7 8.8c.2.1.4.2.5.2s.4-.1.5-.2c.1-.1.3-.398.3-.498 0-.2-.1-.4-.2-.5l-3.2-3.29z"></path></svg></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="df_component df_wrap_btn_search">
-            <button type="button" id="js_go" class="df_btn_search"><span
-                    class="df_component df_label">Search</span><span
-                    class="df_component"><span class="icon-ic icon-bg-icn_search_light"></span></span></button>
-        </div>
-    </div>
+<div id="the-basics">
+    <input class="typeahead" type="text" placeholder="States of USA">
 </div>
-
 </body>
 </html>
