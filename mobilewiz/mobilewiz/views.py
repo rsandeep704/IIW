@@ -15,22 +15,18 @@ class Home(View):
 class Search(View):
     def get(self, request):
         sqs = SearchQuerySet().filter(content_auto=request.GET.get('q', ''))
-        print(sqs)
-        # suggestions = [result.title for result in sqs]
 
         baseURLForItem = "/item/"
 
         suggestions = []
 
         for result in sqs:
-            suggestion = {}
+            suggestion = dict()
             suggestion['title'] = result.title
             suggestion['url'] = baseURLForItem + urllib.parse.quote(result.title)
             suggestions.append(suggestion)
-
+            if len(suggestions) >= 10:
+                break
         data = json.dumps(suggestions)
 
-        # data = json.dumps({
-        #     'results': suggestions
-        # })
         return HttpResponse(data, content_type='application/json')
