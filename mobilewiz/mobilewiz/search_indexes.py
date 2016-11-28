@@ -3,16 +3,28 @@ __author__ = 'sandeep'
 import datetime
 
 from haystack import indexes
-from mobilewiz.models import Note
+from mobilewiz.models import *
 
-class NoteIndex(indexes.SearchIndex, indexes.Indexable):
+# class NoteIndex(indexes.SearchIndex, indexes.Indexable):
+#     text = indexes.CharField(document=True, use_template=True)
+#     author = indexes.CharField(model_attr='user')
+#     pub_date = indexes.DateTimeField(model_attr='pub_date')
+#
+#     def get_model(self):
+#         return Note
+#
+#     def index_queryset(self, using=None):
+#         """Used when the entire index for model is updated."""
+#         return self.get_model().objects.filter(pub_date__lte=datetime.datetime.now())
+
+class GlobalIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
-    author = indexes.CharField(model_attr='user')
-    pub_date = indexes.DateTimeField(model_attr='pub_date')
+    name = indexes.CharField(model_attr='name')
+    price = indexes.DecimalField(model_attr='totalCost')
 
     def get_model(self):
-        return Note
+        return GlobalTable
 
     def index_queryset(self, using=None):
         """Used when the entire index for model is updated."""
-        return self.get_model().objects.filter(pub_date__lte=datetime.datetime.now())
+        return self.get_model().objects.filter(name="")

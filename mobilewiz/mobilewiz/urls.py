@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from mobilewiz.views import Home, Search
+from mobilewiz.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url('^$', Home.as_view()),
     # url(r'^search/', include('haystack.urls')),
-    url(r'^search/', Search.as_view())
+    url(r'^search/', Search.as_view()),
+    url(r'^item/(?P<name>.*)', Item.as_view())
 ]

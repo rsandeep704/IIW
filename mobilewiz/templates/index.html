@@ -22,11 +22,11 @@
         });
         $(document).ready(function () {
             $('#searchBox').typeahead(null, {
-                display: 'title',
+                display: 'name',
                 source: searchResults,
                 templates: {
                     suggestion: function (data) {
-                        return "<a href=" + data.url + ">" + data.title + "</a>"
+                        return "<a href=" + data.url + ">" + data.name + "</a>"
                     }
                 }
             });
