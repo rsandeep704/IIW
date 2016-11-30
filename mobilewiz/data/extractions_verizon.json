@@ -1,0 +1,322 @@
+[
+  {
+    "url": "https://www.verizonwireless.com/smartphones/apple-iphone-6s",
+    "emi": "22.91",
+    "name": "Apple iPhone 6s ",
+    "brand": "apple",
+    "memory": "32GB",
+    "full_price": "549.99",
+    "down_payment": "0",
+    "no_of_months": "24"
+  },
+  {
+    "url": "https://www.verizonwireless.com/smartphones/apple-iphone-6s",
+    "emi": "27.08",
+    "name": "Apple iPhone 6s ",
+    "brand": "apple",
+    "memory": "128GB",
+    "full_price": "649.99",
+    "down_payment": "0",
+    "no_of_months": "24"
+  },
+  {
+    "url": "https://www.verizonwireless.com/smartphones/apple-iphone-6s",
+    "emi": "22.08",
+    "name": "Apple iPhone 6s ",
+    "brand": "apple",
+    "memory": "16GB",
+    "full_price": "529.99",
+    "down_payment": "0",
+    "no_of_months": "24"
+  },
+  {
+    "url": "https://www.verizonwireless.com/smartphones/apple-iphone-6s",
+    "emi": "24.99",
+    "name": "Apple iPhone 6s ",
+    "brand": "apple",
+    "memory": "64GB",
+    "full_price": "599.99",
+    "down_payment": "0",
+    "no_of_months": "24"
+  },
+  {
+    "url": "https://www.verizonwireless.com/smartphones/apple-iphone-6s-plus",
+    "emi": "27.08",
+    "name": "Apple iPhone 6s Plus ",
+    "brand": "apple",
+    "memory": "32GB",
+    "full_price": "649.99",
+    "down_payment": "0",
+    "no_of_months": "24"
+  },
+  {
+    "url": "https://www.verizonwireless.com/smartphones/apple-iphone-6s-plus",
+    "emi": "31.24",
+    "name": "Apple iPhone 6s Plus ",
+    "brand": "apple",
+    "memory": "128GB",
+    "full_price": "749.99",
+    "down_payment": "0",
+    "no_of_months": "24"
+  },
+  {
+    "url": "https://www.verizonwireless.com/smartphones/apple-iphone-6s-plus",
+    "emi": "26.24",
+    "name": "Apple iPhone 6s Plus ",
+    "brand": "apple",
+    "memory": "16GB",
+    "full_price": "629.99",
+    "down_payment": "0",
+    "no_of_months": "24"
+  },
+  {
+    "url": "https://www.verizonwireless.com/smartphones/apple-iphone-6s-plus",
+    "emi": "29.16",
+    "name": "Apple iPhone 6s Plus ",
+    "brand": "apple",
+    "memory": "64GB",
+    "full_price": "699.99",
+    "down_payment": "0",
+    "no_of_months": "24"
+  },
+  {
+    "url": "https://www.verizonwireless.com/smartphones/apple-iphone-7",
+    "emi": "27.08",
+    "name": "Apple iPhone 7 ",
+    "brand": "apple",
+    "memory": "32GB",
+    "full_price": "649.99",
+    "down_payment": "0",
+    "no_of_months": "24"
+  },
+  {
+    "url": "https://www.verizonwireless.com/smartphones/apple-iphone-7",
+    "emi": "31.24",
+    "name": "Apple iPhone 7 ",
+    "brand": "apple",
+    "memory": "128GB",
+    "full_price": "749.99",
+    "down_payment": "0",
+    "no_of_months": "24"
+  },
+  {
+    "url": "https://www.verizonwireless.com/smartphones/apple-iphone-7",
+    "emi": "35.41",
+    "name": "Apple iPhone 7 ",
+    "brand": "apple",
+    "memory": "256GB",
+    "full_price": "849.99",
+    "down_payment": "0",
+    "no_of_months": "24"
+  },
+  {
+    "url": "https://www.verizonwireless.com/smartphones/apple-iphone-7-plus",
+    "emi": "32.08",
+    "name": "Apple iPhone 7 Plus ",
+    "brand": "apple",
+    "memory": "32GB",
+    "full_price": "769.99",
+    "down_payment": "0",
+    "no_of_months": "24"
+  },
+  {
+    "url": "https://www.verizonwireless.com/smartphones/apple-iphone-7-plus",
+    "emi": "36.24",
+    "name": "Apple iPhone 7 Plus ",
+    "brand": "apple",
+    "memory": "128GB",
+    "full_price": "869.99",
+    "down_payment": "0",
+    "no_of_months": "24"
+  },
+  {
+    "url": "https://www.verizonwireless.com/smartphones/apple-iphone-7-plus",
+    "emi": "40.41",
+    "name": "Apple iPhone 7 Plus ",
+    "brand": "apple",
+    "memory": "256GB",
+    "full_price": "969.99",
+    "down_payment": "0",
+    "no_of_months": "24"
+  },
+  {
+    "url": "https://www.verizonwireless.com/smartphones/apple-iphone-se",
+    "emi": "16.66",
+    "name": "Apple iPhone SE ",
+    "brand": "apple",
+    "memory": "16GB",
+    "full_price": "399.99",
+    "down_payment": "0",
+    "no_of_months": "24"
+  },
+  {
+    "url": "https://www.verizonwireless.com/smartphones/apple-iphone-se",
+    "emi": "18.74",
+    "name": "Apple iPhone SE ",
+    "brand": "apple",
+    "memory": "64GB",
+    "full_price": "449.99",
+    "down_payment": "0",
+    "no_of_months": "24"
+  },
+  {
+    "url": "https://www.verizonwireless.com/smartphones/google-pixel",
+    "emi": "27.08",
+    "name": "Pixel",
+    "brand": "google",
+    "memory": "32GB",
+    "full_price": "649.99",
+    "down_payment": "0",
+    "no_of_months": "24"
+  },
+  {
+    "url": "https://www.verizonwireless.com/smartphones/google-pixel",
+    "emi": "31.24",
+    "name": "Pixel",
+    "brand": "google",
+    "memory": "128GB",
+    "full_price": "749.99",
+    "down_payment": "0",
+    "no_of_months": "24"
+  },
+  {
+    "url": "https://www.verizonwireless.com/smartphones/google-pixel-xl",
+    "emi": "32.08",
+    "name": "Pixel XL",
+    "brand": "google",
+    "memory": "32GB",
+    "full_price": "769.99",
+    "down_payment": "0",
+    "no_of_months": "24"
+  },
+  {
+    "url": "https://www.verizonwireless.com/smartphones/google-pixel-xl",
+    "emi": "36.24",
+    "name": "Pixel XL",
+    "brand": "google",
+    "memory": "128GB",
+    "full_price": "869.99",
+    "down_payment": "0",
+    "no_of_months": "24"
+  },
+  {
+    "url": "https://www.verizonwireless.com/smartphones/htc-10",
+    "emi": "27",
+    "name": "HTC 10 ",
+    "brand": "htc",
+    "memory": "32GB",
+    "full_price": "648",
+    "down_payment": "0",
+    "no_of_months": "24"
+  },
+  {
+    "url": "https://www.verizonwireless.com/smartphones/iphone-6",
+    "emi": "18.74",
+    "name": "Apple iPhone 6 ",
+    "brand": "apple",
+    "memory": "16GB",
+    "full_price": "449.99",
+    "down_payment": "0",
+    "no_of_months": "24"
+  },
+  {
+    "url": "https://www.verizonwireless.com/smartphones/iphone-6",
+    "emi": "20.83",
+    "name": "Apple iPhone 6 ",
+    "brand": "apple",
+    "memory": "64GB",
+    "full_price": "499.99",
+    "down_payment": "0",
+    "no_of_months": "24"
+  },
+  {
+    "url": "https://www.verizonwireless.com/smartphones/lg-g5",
+    "emi": "26",
+    "name": "LG G5 ",
+    "brand": "lg",
+    "memory": "32GB",
+    "full_price": "624",
+    "down_payment": "0",
+    "no_of_months": "24"
+  },
+  {
+    "url": "https://www.verizonwireless.com/smartphones/lg-v20",
+    "emi": "28",
+    "name": "LG V20 ",
+    "brand": "lg",
+    "memory": "64GB",
+    "full_price": "672",
+    "down_payment": "0",
+    "no_of_months": "24"
+  },
+  {
+    "url": "https://www.verizonwireless.com/smartphones/moto-z-droid",
+    "emi": "26",
+    "name": "Moto Z Droid ",
+    "brand": "motorola",
+    "memory": "32GB",
+    "full_price": "624",
+    "down_payment": "0",
+    "no_of_months": "24"
+  },
+  {
+    "url": "https://www.verizonwireless.com/smartphones/moto-z-force-droid",
+    "emi": "30",
+    "name": "Moto Z Force Droid Edition ",
+    "brand": "motorola",
+    "memory": "32GB",
+    "full_price": "720",
+    "down_payment": "0",
+    "no_of_months": "24"
+  },
+  {
+    "url": "https://www.verizonwireless.com/smartphones/moto-z-play-droid",
+    "emi": "17",
+    "name": "Moto Z Play Droid ",
+    "brand": "motorola",
+    "memory": "32GB",
+    "full_price": "408",
+    "down_payment": "0",
+    "no_of_months": "24"
+  },
+  {
+    "url": "https://www.verizonwireless.com/smartphones/samsung-galaxy-j3-v",
+    "emi": "7",
+    "name": "Samsung Galaxy J3 V ",
+    "brand": "samsung",
+    "memory": "16GB",
+    "full_price": "168",
+    "down_payment": "0",
+    "no_of_months": "24"
+  },
+  {
+    "url": "https://www.verizonwireless.com/smartphones/samsung-galaxy-note-7",
+    "emi": "36",
+    "name": "Samsung Galaxy Note7 ",
+    "brand": "samsung",
+    "memory": "64GB",
+    "full_price": "864",
+    "down_payment": "0",
+    "no_of_months": "24"
+  },
+  {
+    "url": "https://www.verizonwireless.com/smartphones/samsung-galaxy-s7",
+    "emi": "28",
+    "name": "Samsung Galaxy S7 ",
+    "brand": "samsung",
+    "memory": "32GB",
+    "full_price": "672",
+    "down_payment": "0",
+    "no_of_months": "24"
+  },
+  {
+    "url": "https://www.verizonwireless.com/smartphones/samsung-galaxy-s7-edge",
+    "emi": "33",
+    "name": "Samsung Galaxy S7 edge ",
+    "brand": "samsung",
+    "memory": "32GB",
+    "full_price": "792",
+    "down_payment": "0",
+    "no_of_months": "24"
+  }
+]
