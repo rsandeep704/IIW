@@ -1,7 +1,21 @@
-body {
-    background-color: #f2f2f2;
+.mobwiz-header
+{
+    background: #eee;
+    color: #000;
+    padding:5px;
+    width:100%;
+    margin-bottom:20px;
+}
+.mobwiz-heading
+{
+    margin: 5px;
+    font-size: 30px;
 }
 
+.mobwiz-description
+{
+    font-size: 18px;
+}
 #searchBox {
     font-size: 130%;
     font-weight: bold;
@@ -10,9 +24,75 @@ body {
 }
 
 #remote {
-    background-color: white;
-    margin-top: 100px;
+    margin-top: 20px;
     width: 60%;
     margin-left: auto;
     margin-right: auto;
+}
+.twitter-typeahead
+{
+    background: white;
+}
+.input-label
+{
+    font-style: italic;
+    font-size: 16px;
+}
+.navbar
+{
+    min-height:85px;
+}
+.navbar-header
+{
+    width:100%;
+}
+.navbar-brand
+{
+    float: none;
+    font-size:46px;
+    display:inline-block;
+}
+.body-background
+{
+    width:100%;
+    height:100%;
+    position: fixed;
+    z-index: -1;
+    background: url('/static/images/mobileWiz2.jpg') no-repeat center center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    color: #000;
+    transition: all 0.5s ease-in-out;
+}
+.static-background
+{
+    width:100%;
+    height:100%;
+    position: fixed;
+    z-index: -1;
+    background: #555;
+    color: #000;
+    transition: all 0.5s ease-in-out;
+}
+.panel-body
+{
+    background: #eee;
+}
+.container-fluid
+{
+    z-index: 2;
+}
+.typeahead:focus
+{
+    border:1px solid #2b669a;
+    box-shadow: 0px 0px 10px 2px #8898a8;
+}
+.btn-grey
+{
+    background: #777;
+    border-color: #777;;
+}
+#description
+{
+    background: #ccc;
 }

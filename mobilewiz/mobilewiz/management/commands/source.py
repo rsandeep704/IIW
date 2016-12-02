@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand, CommandError
 import json
-from mobilewiz.models import ATTData, VerizonData, TMobileData
+import re
+from mobilewiz.models import ATTData, VerizonData, TMobileData, GlobalMobilePhoneModel, GlobalMobilePhones
 
 
 def source_att():
@@ -21,6 +22,7 @@ def source_att():
         att_phone.no_of_installments = json_obj['number_of_installments']
         att_phone.down_payment = json_obj['prices - down_payment']
         att_phone.sku_id = json_obj['sku_id']
+        att_phone.imageUrl = ""
 
         att_phone.save()
 
@@ -42,6 +44,7 @@ def source_verizon():
         verizon_phone.total_cost = json_obj['full_price']
         verizon_phone.no_of_installments = json_obj['no_of_months']
         verizon_phone.down_payment = json_obj['down_payment']
+        verizon_phone.imageUrl = ""
 
         verizon_phone.save()
 
@@ -63,9 +66,116 @@ def source_tmobile():
         tmobile_phone.total_cost = json_obj['full_price']
         tmobile_phone.no_of_installments = json_obj['number_of_months']
         tmobile_phone.down_payment = json_obj['down_payment']
+        tmobile_phone.imageUrl = ""
 
         tmobile_phone.save()
     pass
+
+def link():
+    attData = ATTData.objects.all()
+    GlobalMobilePhoneModel.objects.all().delete()
+    GlobalMobilePhones.objects.all().delete()
+    for data in attData:
+        globalData = GlobalMobilePhoneModel.objects.all()
+        globalModelNames = globalData.values_list('modelName', flat=True)
+        if str(data.model).rstrip(' ') not in globalModelNames:
+            globalMobilePhoneModel = GlobalMobilePhoneModel()
+            globalMobilePhoneModel.modelName = str(data.model).rstrip(' ')
+            globalMobilePhoneModel.title = data.name
+            globalMobilePhoneModel.save()
+            globalMobilePhone = GlobalMobilePhones()
+            globalMobilePhone.phone_model = globalMobilePhoneModel
+            globalMobilePhone.down_payment = data.down_payment
+            globalMobilePhone.emi = data.emi
+            globalMobilePhone.no_of_installments = data.no_of_installments
+            globalMobilePhone.totalCost = data.total_cost
+            globalMobilePhone.company = "AT&T"
+            globalMobilePhone.title = data.name
+            globalMobilePhone.url = data.url
+            globalMobilePhone.imageUrl = data.imageUrl
+            globalMobilePhone.save()
+        else:
+            globalMobilePhone = GlobalMobilePhones()
+            globalMobilePhone.phone_model = GlobalMobilePhoneModel.objects.filter(modelName=str(data.model).rstrip(' ')).get()
+            globalMobilePhone.down_payment = data.down_payment
+            globalMobilePhone.emi = data.emi
+            globalMobilePhone.no_of_installments = data.no_of_installments
+            globalMobilePhone.totalCost = data.total_cost
+            globalMobilePhone.company = "AT&T"
+            globalMobilePhone.title = data.name
+            globalMobilePhone.url = data.url
+            globalMobilePhone.imageUrl = data.imageUrl
+            globalMobilePhone.save()
+
+    tmobile = TMobileData.objects.all()
+    for data in tmobile:
+        strippedModelName = re.sub(data.brand,"",data.name, flags=re.IGNORECASE)
+        strippedModelName = strippedModelName.rstrip(' ').lstrip(' ')
+        globalData = GlobalMobilePhoneModel.objects.all()
+        globalModelNames = globalData.values_list('modelName', flat=True)
+        if strippedModelName not in globalModelNames:
+            globalMobilePhoneModel = GlobalMobilePhoneModel()
+            globalMobilePhoneModel.modelName = strippedModelName
+            globalMobilePhoneModel.title = data.name + " " + data.memory
+            globalMobilePhoneModel.save()
+            globalMobilePhone = GlobalMobilePhones()
+            globalMobilePhone.phone_model = globalMobilePhoneModel
+            globalMobilePhone.down_payment = data.down_payment
+            globalMobilePhone.emi = data.emi
+            globalMobilePhone.no_of_installments = data.no_of_installments
+            globalMobilePhone.totalCost = data.total_cost
+            globalMobilePhone.company = "TMobile"
+            globalMobilePhone.title = data.name + " " + data.memory
+            globalMobilePhone.url = data.url
+            globalMobilePhone.imageUrl = data.imageUrl
+            globalMobilePhone.save()
+        else:
+            globalMobilePhone = GlobalMobilePhones()
+            globalMobilePhone.phone_model = GlobalMobilePhoneModel.objects.filter(modelName=strippedModelName).get()
+            globalMobilePhone.down_payment = data.down_payment
+            globalMobilePhone.emi = data.emi
+            globalMobilePhone.no_of_installments = data.no_of_installments
+            globalMobilePhone.totalCost = data.total_cost
+            globalMobilePhone.company = "TMobile"
+            globalMobilePhone.title = data.name + " " + data.memory
+            globalMobilePhone.url = data.url
+            globalMobilePhone.imageUrl = data.imageUrl
+            globalMobilePhone.save()
+
+    verizon = VerizonData.objects.all()
+    for data in verizon:
+        strippedModelName = re.sub(data.brand, "", data.name, flags=re.IGNORECASE)
+        strippedModelName = strippedModelName.rstrip(' ').lstrip(' ')
+        globalData = GlobalMobilePhoneModel.objects.all()
+        globalModelNames = globalData.values_list('modelName', flat=True)
+        if strippedModelName not in globalModelNames:
+            globalMobilePhoneModel = GlobalMobilePhoneModel()
+            globalMobilePhoneModel.modelName = strippedModelName
+            globalMobilePhoneModel.title = data.name + " " + data.memory
+            globalMobilePhoneModel.save()
+            globalMobilePhone = GlobalMobilePhones()
+            globalMobilePhone.phone_model = globalMobilePhoneModel
+            globalMobilePhone.down_payment = data.down_payment
+            globalMobilePhone.emi = data.emi
+            globalMobilePhone.no_of_installments = data.no_of_installments
+            globalMobilePhone.totalCost = data.total_cost
+            globalMobilePhone.company = "Verizon"
+            globalMobilePhone.title = data.name + " " + data.memory
+            globalMobilePhone.url = data.url
+            globalMobilePhone.imageUrl = data.imageUrl
+            globalMobilePhone.save()
+        else:
+            globalMobilePhone = GlobalMobilePhones()
+            globalMobilePhone.phone_model = GlobalMobilePhoneModel.objects.filter(modelName=strippedModelName).get()
+            globalMobilePhone.down_payment = data.down_payment
+            globalMobilePhone.emi = data.emi
+            globalMobilePhone.no_of_installments = data.no_of_installments
+            globalMobilePhone.totalCost = data.total_cost
+            globalMobilePhone.company = "Verizon"
+            globalMobilePhone.title = data.name + " " + data.memory
+            globalMobilePhone.url = data.url
+            globalMobilePhone.imageUrl = data.imageUrl
+            globalMobilePhone.save()
 
 
 class Command(BaseCommand):
@@ -75,3 +185,4 @@ class Command(BaseCommand):
         source_att()
         source_verizon()
         source_tmobile()
+        link()

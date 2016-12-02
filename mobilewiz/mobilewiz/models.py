@@ -8,23 +8,15 @@ import uuid
 class GlobalMobilePhoneModel(models.Model):
     class Meta:
         managed = True
-        verbose_name = 'Mobile phone'
-        verbose_name_plural = 'Mobile Phones'
+        verbose_name = 'Mobile phone Model'
+        verbose_name_plural = 'Mobile Phone Models'
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=256)
-    brand = models.CharField(max_length=256)
+    modelName = models.CharField(max_length=256)
 
-
-class Companies(models.Model):
-    class Meta:
-        managed = True
-        verbose_name = 'Mobile phone Selling Companies'
-        verbose_name_plural = 'Mobile Phones Selling companies'
-
-    id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=256)
-
+    def __str__(self):
+        return self.modelName
 
 class GlobalMobilePhones(models.Model):
     class Meta:
@@ -32,19 +24,19 @@ class GlobalMobilePhones(models.Model):
         verbose_name = "Mobile Phone"
         verbose_name_plural = "Mobile Phones"
 
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    title = models.CharField(max_length=256)
     phone_model = models.ForeignKey(GlobalMobilePhoneModel)
-    company = models.ForeignKey(Companies)
+    company = models.CharField(max_length=256)
     totalCost = models.DecimalField(max_digits=10, decimal_places=2)
     emi = models.DecimalField(max_digits=10, decimal_places=2)
     no_of_installments = models.IntegerField()
+    down_payment = models.DecimalField(max_digits=10, decimal_places=2)
+    url = models.URLField()
+    imageUrl = models.URLField()
 
-
-class GlobalSpecs(models.Model):
-    class Meta:
-        managed = True
-        verbose_name = "Phone Specifications"
-
-    pass
+    def __str__(self):
+        return self.title
 
 
 class ATTData(models.Model):
@@ -62,6 +54,7 @@ class ATTData(models.Model):
     emi = models.DecimalField(max_digits=10, decimal_places=2)
     no_of_installments = models.IntegerField()
     brand = models.CharField(max_length=256)
+    imageUrl = models.URLField()
 
     def __str__(self):
         return self.name
@@ -76,6 +69,7 @@ class TMobileData(models.Model):
     emi = models.DecimalField(max_digits=10, decimal_places=2)
     no_of_installments = models.IntegerField()
     brand = models.CharField(max_length=256)
+    imageUrl = models.URLField()
 
     class Meta:
         managed = True
@@ -94,6 +88,7 @@ class VerizonData(models.Model):
     emi = models.DecimalField(max_digits=10, decimal_places=2)
     no_of_installments = models.IntegerField()
     brand = models.CharField(max_length=256)
+    imageUrl = models.URLField()
 
     class Meta:
         managed = True

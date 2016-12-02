@@ -22,5 +22,5 @@ urlpatterns = [
     url('^$', Home.as_view()),
     # url(r'^search/', include('haystack.urls')),
     url(r'^search/', Search.as_view()),
-    url(r'^item/(?P<name>.*)', Item.as_view())
+    url(r'^item/(?P<modelName>.*)', Item.as_view())
 ]

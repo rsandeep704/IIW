@@ -21,12 +21,18 @@
             }
         });
         $(document).ready(function () {
+
+            setInterval(function(){
+                var randImage = Math.floor(Math.random() * 3) + 1;
+                var imagePath = "url('/static/images/mobileWiz"+ randImage + ".jpg')";
+                $('.body-background').css('background-image', imagePath);
+            },2000)
             $('#searchBox').typeahead(null, {
-                display: 'name',
+                display: 'modelName',
                 source: searchResults,
                 templates: {
                     suggestion: function (data) {
-                        return "<a href=" + data.url + ">" + data.name + "</a>"
+                        return "<a href=" + data.url + ">" + data.modelName + "</a>"
                     }
                 }
             });
@@ -35,9 +41,18 @@
     </script>
 </head>
 <body>
-
-<div id="remote">
-    <input class="typeahead" type="text" placeholder="Example: iphone 6s " id="searchBox">
+<div class="body-background"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="mobwiz-header text-center">
+            <h1 class="mobwiz-heading">MobileWiz</h1>
+            <h3 class="mobwiz-description">A place that displays deals on mobile phones available in the market. </h3>
+        </div>
+        <div id="remote">
+            <input class="typeahead" type="text" placeholder="Search your phone here.Ex: iPhone 6s" id="searchBox">
+        </div>
+    </div>
 </div>
 </body>
+
 </html>
